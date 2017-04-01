@@ -31,6 +31,7 @@ public:
     void push_back(T &&t);
     void pop_back();
     void print();
+    
 private:
     // if size == capacity, return true
     bool is_full();
