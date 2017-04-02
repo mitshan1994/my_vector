@@ -22,15 +22,19 @@ public:
 
     iterator begin();
     iterator end();
-    std::size_t size();
-    std::size_t capacity();
-    bool is_empty();
+    std::size_t size() const;
+    std::size_t capacity() const;
+    bool is_empty() const;
     T at(std::size_t idx);
+    T& operator[](std::size_t n)
+        { return buffer[n]; }
+    const T& operator[](std::size_t n) const
+        { return buffer[n]; }
     void set_at(std::size_t idx, T new_value);
     void push_back(const T &t);
     void push_back(T &&t);
     void pop_back();
-    void print();
+    void print() const;
     
 private:
     // if size == capacity, return true
@@ -135,19 +139,19 @@ typename Vector<T>::iterator Vector<T>::end()
 }
 
 template <typename T>
-std::size_t Vector<T>::size()
+std::size_t Vector<T>::size() const
 {
     return _size;
 }
 
 template <typename T>
-std::size_t Vector<T>::capacity()
+std::size_t Vector<T>::capacity() const
 {
     return _capacity;
 }
 
 template <typename T>
-bool Vector<T>::is_empty()
+bool Vector<T>::is_empty() const
 {
     return 0 == _size;
 }
@@ -207,7 +211,7 @@ bool Vector<T>::expand()
 }
 
 template <typename T>
-void Vector<T>::print()
+void Vector<T>::print() const
 {
     for (int i = 0; i != _size; ++i)
         std::cout << buffer[i] << "  ";

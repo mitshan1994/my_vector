@@ -32,6 +32,13 @@ int main()
     v3 = v2;
     std::cout << "v3: ";
     v3.print();
+    std::cout << "v3[2] = " << v3[2] << std::endl;
+    v3[2] = 10;
+    std::cout << "After v3[2] = 10, v3: \n";
+    v3.print();
+
+    const Vector<int> v4;
+    v4.print();
     
     return 0;
 }
